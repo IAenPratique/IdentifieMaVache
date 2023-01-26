@@ -1,6 +1,7 @@
 from tkinter import *
 from keras.models import Sequential
 from keras.layers import Dense, Conv2D, MaxPooling2D, Flatten
+from show_images_tab import ShowImagesTab
 
 class CreateModelTab(Frame):
     def __init__(self, parent, controller):
@@ -70,3 +71,4 @@ class CreateModelTab(Frame):
         model.summary()
 
         self.controller.set_model(model)
+        self.controller.add_show_images_tab()

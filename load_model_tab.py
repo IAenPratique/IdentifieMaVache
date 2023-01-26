@@ -1,6 +1,7 @@
 
 from tkinter import *
 from keras.models import load_model
+from show_images_tab import ShowImagesTab
 
 class LoadModelTab(Frame):
     def __init__(self, parent, controller):
@@ -20,9 +21,9 @@ class LoadModelTab(Frame):
         if not model_path:
             print("Error: No model path specified.")
             return
-        try:
-            model = load_model(model_path)
-            self.controller.set_model(model)
-            model.summary()
-        except:
-            print("Error: Could not load model.")
+
+        model = load_model(model_path)
+        self.controller.set_model(model)
+        model.summary()
+        self.controller.add_show_images_tab()
+
